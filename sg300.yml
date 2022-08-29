@@ -1,0 +1,15 @@
+---
+- name: Cisco configure commands and save
+  hosts: switch
+  gather_facts: false
+  tasks:
+  - name: Configure switch
+    ios_command:
+        commands:
+               - conf
+               - username ansible privilege 15 password 123456
+               - ntp server 192.168.20.200
+
+  - name: save running to startup when modified
+    ios_config:
+        save_when: modified
