@@ -1,0 +1,31 @@
+---
+- name: Connection to netbox
+  connection: local
+  hosts: localhost
+  gather_facts: false
+
+
+  tasks:
+    - name: Create new device
+      netbox_device:
+        netbox_url: http://172.16.9.91:8000
+        netbox_token: 0123456789abcdef0123456789abcdef01234567
+        data:
+          name: "سوئيچ اصلي"
+          device_type: 30
+          device_role: 1
+          site: 5
+        state: present
+
+
+    - name: Create new site
+      netbox_site:
+        netbox_url: http://172.16.9.91:8000
+        netbox_token: 0123456789abcdef0123456789abcdef01234567
+        data:
+          name: "سايت جديد"
+          region: 2
+          site_group: 2
+          slug: newsite
+          status: active
+        state: present
