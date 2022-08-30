@@ -2,8 +2,6 @@
 - name: Cisco configure commands and save
   hosts: switch
   gather_facts: false
-  vars:
-  ansible_connection: network_cli
   tasks:
   - name: Configure switch
     ios_command:
