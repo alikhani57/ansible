@@ -8,3 +8,8 @@
         commands:
                - show clock
                - show version
+               
+               
+  - name: show result
+    debug:
+        msg: stdout_lines             
