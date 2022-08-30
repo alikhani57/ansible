@@ -1,0 +1,10 @@
+---
+- name: Cisco configure commands and save
+  hosts: switch
+  gather_facts: false
+  tasks:
+  - name: Configure switch
+    ios_command:
+        commands:
+               - show clock
+               - show version
